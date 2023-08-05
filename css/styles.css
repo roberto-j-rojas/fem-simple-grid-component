@@ -1,0 +1,313 @@
+/*
+#############
+    RESET
+#############
+*/
+/* Global defaults */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+  outline-color: transparent;
+  color: inherit;
+  font: inherit;
+}
+
+/* Core root defaults */
+html {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Media defaults */
+img, picture, video, iframe, figure {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Anchor defaults*/
+a {
+  display: block;
+}
+
+p a {
+  display: inline;
+}
+
+/* List elements defaults */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Tables defaults */
+table, tr, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Font Defaults */
+h1, h2, h3, h4, h5, h6, p, span, strong, blockquote, i, b, u, em {
+  font-size: 1em;
+}
+
+/* Reduced Motion Settings */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/*
+
+
+#################
+CUSTOM PROPERTIES
+#################
+*/
+:root {
+  /*
+
+  COLOR VARIABLES 
+  */
+  /* primary */
+  --clr-primary-300: hsl(179, 47%, 52%);
+  --clr-primary-400: hsl(179, 61%, 44%);
+  /* secondary */
+  --clr-secondary-300: hsl(71, 75%, 66%);
+  --clr-secondary-400: hsl(71, 73%, 54%);
+  /* neutral */
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-neutral-200: hsla(0, 0%, 100%, 0.75);
+  --clr-neutral-300: hsla(0, 0%, 100%, 0.5);
+  --clr-neutral-400: hsl(204, 43%, 93%);
+  --clr-neutral-500: hsl(218, 22%, 67%);
+  /*
+
+  FONT VARIABLES 
+  */
+  /* Font families */
+  --ff-base: "Karla", sans-serif;
+  /* Font sizes */
+  --fs-300: 0.875rem; /* -- 14px */
+  --fs-400: 1rem; /* ------ 16px */
+  --fs-450: 1.125rem; /* -- 18px */
+  --fs-500: 1.25rem; /* --- 20px */
+  --fs-600: 1.5rem; /* ---- 24px */
+  --fs-700: 2rem; /* ------ 32px */
+  /* Font weights */
+  --fw-regular: 400;
+  --fw-bold: 700;
+  /* 
+
+  Sizes 
+  */
+  --size-6: 0.375rem; /* -- 6px */
+  --size-10: 0.625rem; /* -- 10px */
+  --size-14: 0.875rem; /* -- 14px */
+  --size-24: 1.5rem; /* ---- 24px */
+  --size-32: 2rem; /* ------ 32px */
+  --size-40: 2.5rem; /* ---- 40px */
+  --size-48: 3rem; /* ------ 48px */
+  /* 
+  Other properties 
+  */
+  --section-padding: var(--size-24);
+  --box-shadow-1: 0 var(--size-10) var(--size-10) hsla(0, 0%, 0%, 10%);
+}
+@media screen and (min-width: 40em) {
+  :root {
+    --section-padding: var(--size-40);
+  }
+}
+
+/*
+
+
+##############
+GENERAL STYLES
+##############
+*/
+body {
+  font-family: var(--ff-base);
+  font-size: var(--fs-400);
+}
+
+main {
+  min-height: 100vh;
+  min-height: 100svh;
+  background-color: var(--clr-neutral-400);
+}
+
+/*
+
+
+###############
+UTILITY CLASSES
+###############
+*/
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+}
+
+.primary-heading {
+  font-size: var(--fs-500);
+  font-weight: var(--fw-bold);
+  color: var(--clr-primary-400);
+}
+@media screen and (min-width: 40em) {
+  .primary-heading {
+    font-size: var(--fs-600);
+  }
+}
+
+.secondary-heading {
+  font-size: var(--fs-400);
+  font-weight: var(--fw-bold);
+  color: var(--clr-neutral-100);
+}
+
+.button {
+  height: var(--size-48);
+  font-weight: var(--fw-bold);
+  background-color: var(--clr-secondary-400);
+  color: var(--clr-neutral-100);
+  border-radius: var(--size-6);
+  text-decoration: none;
+  box-shadow: var(--box-shadow-1);
+}
+.button:hover, .button:focus-visible {
+  background-color: var(--clr-secondary-300);
+}
+
+/*
+
+
+#############
+LAYOUT STYLES
+#############
+*/
+.card {
+  margin: 4.5rem var(--size-32);
+  max-width: 19.5rem;
+  border-radius: var(--size-6);
+  overflow: hidden;
+  box-shadow: var(--box-shadow-1);
+}
+@media screen and (min-width: 40em) {
+  .card {
+    max-width: 39.6875rem;
+    margin: var(--size-32);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.card__section {
+  padding: var(--section-padding);
+}
+
+/* 
+Join our Community section 
+*/
+.join-section {
+  background-color: var(--clr-neutral-100);
+}
+@media screen and (min-width: 40em) {
+  .join-section {
+    grid-column: 1/span 2;
+  }
+}
+.join-section__title {
+  margin: 0.4em 0 1.2em;
+}
+@media screen and (min-width: 40em) {
+  .join-section__title {
+    margin: 0 0 0.7em;
+  }
+}
+.join-section__highlight {
+  font-weight: var(--fw-bold);
+  color: var(--clr-secondary-400);
+  margin-bottom: 1.2em;
+}
+@media screen and (min-width: 40em) {
+  .join-section__highlight {
+    font-size: var(--fs-450);
+    margin: 0 0 0.4em;
+  }
+}
+.join-section__text {
+  font-size: var(--fs-300);
+  color: var(--clr-neutral-500);
+  line-height: 1.8;
+  margin-bottom: 1em;
+}
+@media screen and (min-width: 40em) {
+  .join-section__text {
+    font-size: var(--fs-400);
+    margin-block: 0;
+  }
+}
+
+/* 
+Subscription Section
+*/
+.subscription-section {
+  background-color: var(--clr-primary-400);
+}
+.subscription-section__title {
+  margin-bottom: 1em;
+}
+.subscription-section__price {
+  justify-content: flex-start;
+  color: var(--clr-neutral-300);
+  margin-bottom: 0.4em;
+}
+.subscription-section__price span {
+  color: var(--clr-neutral-100);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-700);
+  margin-right: var(--size-14);
+}
+.subscription-section__text {
+  color: var(--clr-neutral-200);
+  margin-bottom: 2em;
+}
+
+/* 
+Why Us Section 
+*/
+.why-us-section {
+  background-color: var(--clr-primary-300);
+}
+.why-us-section__title {
+  margin-bottom: 1em;
+}
+.why-us-section__list {
+  color: var(--clr-neutral-200);
+  font-size: var(--fs-300);
+}
+.why-us-section__list li {
+  line-height: 1.5;
+}
+
+/*# sourceMappingURL=styles.css.map */
